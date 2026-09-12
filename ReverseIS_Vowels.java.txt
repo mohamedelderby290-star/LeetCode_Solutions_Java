@@ -1,0 +1,53 @@
+
+public class Main {
+    public static void main (String[] args) {
+
+        Solution sol = new Solution();
+        String input1 = "Helo_World";
+        String result1 = sol.reverseVowels(input1);
+        System.out.println ("Input : "  +  input1);
+        System.out.println ("Output : " +  result1);
+
+        System.out.println ("------------------------------");
+
+        String input2 = "Welcome_to_Java";
+        String result2 = sol.reverseVowels(input2);
+        System.out.println ("Input : "  +  input2);
+        System.out.println ("Output : "  +  result2);
+
+    }
+}
+
+public class Solution {
+    public String reverseVowels(String s){
+        char [] arr = s.toCharArray ();
+        int left = 0;
+        int right = arr.length-1;
+
+        while( left < right){
+            while (left < right && !isVowel(arr[left])){
+                left++;
+            }
+
+            while (left < right){
+                while (left < right && !isVowel(arr[right])){
+                    right--;
+                }
+
+                char temp = arr[left];
+                arr[left] = arr[right];
+                arr[right] = temp ;
+                left++;
+                right--;
+
+            }
+
+            return new String (arr);
+
+        }
+        return new String(arr);
+    }
+    private boolean isVowel(char c){
+        return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U';
+    }
+}
