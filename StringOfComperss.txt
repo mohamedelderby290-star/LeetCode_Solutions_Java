@@ -1,0 +1,48 @@
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+public class Main {
+    public static void main (String[] args) {
+       Solution sol = new Solution();
+       char [] chars1 = {'a','a','a','b','b','c'};
+       int len1 = sol.Compress(chars1);
+        System.out.print("Output Length : " + len1);
+        printChars(chars1 , len1);
+
+        System.out.println ("--------------------");
+
+       char [] chars2 = {'s','s','s','c','c','o'};
+       int len2 = sol.Compress(chars2);
+        System.out.print("Output Length : " + len2);
+        printChars(chars2 , len2);
+    }
+
+    private static void printChars (char[] chars , int len){
+        System.out.print ("[");
+        for (int i = 0 ; i < len ; i++){
+            System.out.print ("'" + chars[i] + "'" + (i < len - 1 ?"'" : " "));
+        }
+        System.out.print ("]");
+    }
+}
+public class Solution {
+    public int Compress(char [] chars){
+        int Write = 0 ;
+        int i = 0 ;
+        while (i < chars.length){
+            char current = chars[i];
+            int count = 0 ;
+
+            while (i < chars.length && chars[i] == current){
+                count++;
+                i++;
+            }
+            chars[Write++] = current;
+            if (count > 1) {
+                for (char c : String.valueOf(count).toCharArray()) {
+                    chars[Write++] = c;
+                }
+            }
+        }
+        return Write;
+    }
+}
