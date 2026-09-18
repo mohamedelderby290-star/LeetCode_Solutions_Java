@@ -1,0 +1,44 @@
+
+public class Main {
+    public static void main (String[] args) {
+
+        Solution sol = new Solution ();
+        int[] nums1 = {0,1,0,3,12};
+        sol.MoveZeroes (nums1);
+        System.out.print ("Output : Move Zeroes => " );
+        printArray (nums1);
+
+
+        System.out.println ("--------------------------------");
+
+        int[] numes2 = {0, 0, 9, 5, 4, 3, 0, 1, 2,};
+        sol.MoveZeroes (numes2);
+        System.out.print("Output : Move Zeroes => ");
+        printArray (numes2);
+    }
+
+    public static void printArray (int[] arr) {
+        System.out.print ("[");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print (arr[i] + (i < arr.length - 1 ? "," : ""));
+
+        }
+        System.out.println ("}");
+    }
+}
+public class Solution {
+    public void MoveZeroes(int [] nums) {
+        int write = 0 ;
+         for( int i = 0 ; i < nums.length ; i++) {
+             if ( nums[i] != 0 ){
+                 nums[write] = nums[i];
+                 write++;
+             }
+         }
+         while (write < nums.length) {
+             nums[write] = 0 ;
+             write++;
+
+         }
+    }
+}
