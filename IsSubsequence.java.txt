@@ -1,0 +1,30 @@
+
+public class Main {
+    public static void main (String[] args) {
+
+        Solution sol = new Solution();
+        String s1 = "abc";
+        String c1 = "ahbgdc";
+        System.out.println ("Output 1 =>"  +  sol.IsSubsequence(s1 , c1));
+
+        System.out.println ("========================");
+
+        String s2 = "ghkl";
+        String c2 = "gthyuikop";
+        sol.IsSubsequence(s2 , c2);
+        System.out.println ("Output 2 => " +  sol.IsSubsequence(s2 , c2));
+    }
+}
+public class Solution {
+    public boolean IsSubsequence(String s , String c){
+        int i = 0 ;
+        int j = 0 ;
+        while (i < s.length () && j < c.length ()){
+            if (s.charAt (i) == c.charAt (j)){
+                i++;
+            }
+            j++;
+        }
+        return i == s.length();
+    }
+}
